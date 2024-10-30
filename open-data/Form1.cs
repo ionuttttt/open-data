@@ -244,7 +244,7 @@ namespace open_data
 
             if (checkBox2.Checked)
             {
-                listMacchine = listMacchine.OrderByDescending(m => m.Carburante == "Diesel").ToList();//llll
+                listMacchine = listMacchine.OrderByDescending(m => m.Carburante == "Diesel").ToList();
             }
             else
             {
@@ -260,6 +260,20 @@ namespace open_data
             if (checkBox3.Checked)
             {
                 listMacchine = listMacchine.OrderByDescending(m => m.Carburante == "CNG").ToList();
+            }
+            else
+            {
+                ordina();
+                controlla();
+            }
+            CaricaMacchinenellalistview();
+        }
+        //Ordinamento in base al campo "gpl"
+        private void checkBox13_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox13.Checked)
+            {
+                listMacchine = listMacchine.OrderByDescending(m => m.Carburante == "LPG").ToList();
             }
             else
             {
@@ -451,6 +465,10 @@ namespace open_data
             {
                 listMacchine = listMacchine.OrderByDescending(m => m.Carburante == "CNG").ToList();
             }
+            if (checkBox13.Checked == true)
+            {
+                listMacchine = listMacchine.OrderByDescending(m => m.Carburante == "LPG").ToList();
+            }
             if (checkBox5.Checked == true)
             {
                 listMacchine = listMacchine.OrderByDescending(m => m.Trasmissione == "Manual").ToList();
@@ -497,6 +515,7 @@ namespace open_data
             checkBox1.Checked = false;
             checkBox2.Checked = false;
             checkBox3.Checked = false;
+            checkBox13.Checked = false;
             checkBox4.Checked = false;
             checkBox5.Checked = false;
             checkBox6.Checked = false;
@@ -529,5 +548,6 @@ namespace open_data
                 });
             }
         }
+
     }
 }
